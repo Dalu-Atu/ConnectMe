@@ -205,6 +205,29 @@ exports.signUp = async (req, res) => {
     });
   }
 };
+// controllers/authController.js
+
+exports.getCurrentUser = async (req, res) => {
+  try {
+    // Assuming req.user is populated by an auth middleware (like verifyToken)
+    if (!req.user) {
+      return res.status(401).json({
+        success: false,
+        message: "Not authorized",
+      });
+    }
+
+    res.status(200).json({
+      success: true,
+      user: req.user, // this should be safe, filtered user data
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: "Failed to get current user",
+    });
+  }
+};
 
 exports.googleCallback = (req, res) => {
   try {

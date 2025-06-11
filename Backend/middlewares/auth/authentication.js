@@ -1,7 +1,7 @@
 const jwt = require("jsonwebtoken");
-const User = require("../../models/User");
+const User = require("../../Models/User");
 
-esports.authenticate = async (req, res, next) => {
+exports.authenticate = async (req, res, next) => {
   try {
     const token = req.header("Authorization")?.replace("Bearer ", "");
 

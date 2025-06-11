@@ -1,6 +1,6 @@
 const Dashboard = ({ user }) => {
   console.log(user);
-  return <div>Hello, {user.name}</div>;
+  return <div>Hello, {user.email}</div>;
 };
 
 export default Dashboard;

@@ -4,6 +4,7 @@ const {
   signUp,
   googleCallback,
   verifyEmail,
+  getCurrentUser,
 } = require("../Controllers/authController");
 const {
   signUpValidation,
@@ -12,10 +13,12 @@ const {
 } = require("../middlewares/validation/validation");
 const router = express.Router();
 const passport = require("../config/passport");
+const { authenticate } = require("../middlewares/auth/authentication");
 
 router.post("/signup", signUpValidation, runValidation, signUp);
 router.post("/signin", signInValidation, runValidation, signIn);
 router.post("/verify-email", verifyEmail);
+router.get("/me", authenticate, getCurrentUser);
 router.get(
   "/google",
   passport.authenticate("google", { scope: ["profile", "email"] })
