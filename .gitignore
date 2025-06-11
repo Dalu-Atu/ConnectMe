@@ -1,0 +1,19 @@
+# Ignore environment files
+backend/config.env
+frontend/.env
+
+# Node modules
+**/node_modules/
+
+# Logs
+**/logs/
+*.log
+npm-debug.log*
+
+# Build outputs
+frontend/dist/
+backend/build/
+
+# OS/System files
+.DS_Store
+Thumbs.db
